@@ -26,9 +26,9 @@ pipeline {
             For me it worked without giving credentials
             If it does not work, create global credentials in jenkins and use as below in steps*/
             steps{
-                /*bat 'docker login -u ${DOCKER_HUB_USR} -p ${DOCKER_HUB_PSW}'*/
+                bat 'docker login -u ${DOCKER_HUB_USR} -p ${DOCKER_HUB_PSW}'
                 //the above way of login will give warning in jenkins console, to fix it use below code
-                bat 'echo ${DOCKER_HUB_PSW} | docker login -u ${DOCKER_HUB_USR} --password-stdin'
+                //bat 'echo ${DOCKER_HUB_PSW} | docker login -u ${DOCKER_HUB_USR} --password-stdin'
                 //the above comment might not work in windows
                 bat "docker push uk040193/selenium-docker:latest"
                 bat "docker tag uk040193/selenium-docker:latest uk040193/selenium-docker:${env.BUILD_NUMBER}"
