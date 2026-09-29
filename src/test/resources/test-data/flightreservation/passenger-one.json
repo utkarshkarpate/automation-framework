@@ -1,0 +1,11 @@
+{
+  "firstname": "John",
+  "lastname": "Doe",
+  "email": "john.doe@yahoo.com",
+  "password": "password123098776655",
+  "street": "123 Main St",
+  "city": "Atlanta",
+  "zip": "30301",
+  "passengersCount": "One",
+  "expectedPrice": "$584 USD"
+}

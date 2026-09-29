@@ -1,0 +1,39 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--if we don't add the above line, we might not give many default suggestions-->
+<suite name="FlightReservationSuite" parallel="tests" thread-count="5">
+    <test name="passenger-count-1">
+        <!--<parameter name = "numberOfPassengers" value = "One" />
+        <parameter name = "expectedPrice" value = "$584 USD" />-->
+        <parameter name = "testDataPath" value = "test-data/flightreservation/passenger-one.json" />
+        <classes>
+            <class name="com.example.tests.flightreservation.FlightReservationTest" />
+        </classes>
+    </test>
+
+    <test name="passenger-count-2">
+        <!--<parameter name = "numberOfPassengers" value = "Two" />
+        <parameter name = "expectedPrice" value = "$1169 USD" />-->
+        <parameter name = "testDataPath" value = "test-data/flightreservation/passenger-two.json" />
+        <classes>
+            <class name="com.example.tests.flightreservation.FlightReservationTest" />
+        </classes>
+    </test>
+
+    <test name="passenger-count-3">
+        <!--<parameter name = "numberOfPassengers" value = "Three" />
+        <parameter name = "expectedPrice" value = "$1753 USD" />-->
+        <parameter name = "testDataPath" value = "test-data/flightreservation/passenger-three.json" />
+        <classes>
+            <class name="com.example.tests.flightreservation.FlightReservationTest" />
+        </classes>
+    </test>
+
+    <test name="passenger-count-4">
+        <!--<parameter name = "numberOfPassengers" value = "Four" />
+        <parameter name = "expectedPrice" value = "$2338 USD" />-->
+        <parameter name = "testDataPath" value = "test-data/flightreservation/passenger-four.json" />
+        <classes>
+            <class name="com.example.tests.flightreservation.FlightReservationTest" />
+        </classes>
+    </test>
+</suite>

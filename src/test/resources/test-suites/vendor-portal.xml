@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--if we don't add the above line, we might not give many default suggestions-->
+<suite name="VendorPortal" parallel="tests" thread-count="3">
+    <!-- with this, when ran in grid, it did not run in parallel, but when ran in local, it did run in parallel.-->
+
+    <test name="user-sam">
+        <parameter name = "testDataPath" value = "test-data/vendorportal/sam.json" />
+        <classes>
+            <class name="com.example.tests.vendorPortal.VendorPortalTest" />
+        </classes>
+    </test>
+    <test name="user-mike">
+        <parameter name = "testDataPath" value = "test-data/vendorportal/mike.json" />
+        <classes>
+            <class name="com.example.tests.vendorPortal.VendorPortalTest" />
+        </classes>
+    </test>
+    <test name="user-john">
+        <parameter name = "testDataPath" value = "test-data/vendorportal/john.json" />
+        <classes>
+            <class name="com.example.tests.vendorPortal.VendorPortalTest" />
+        </classes>
+    </test>
+
+
+
+</suite>
