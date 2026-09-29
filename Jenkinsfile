@@ -32,7 +32,7 @@ pipeline {
                 //the above comment might not work in windows
                 bat "docker push uk040193/selenium-docker:latest"
                 bat "docker tag uk040193/selenium-docker:latest uk040193/selenium-docker:${env.BUILD_NUMBER}"
-                bat "docker push uk040193/selenium-docker:${}env.BUILD_NUMBER}"
+                bat "docker push uk040193/selenium-docker:${env.BUILD_NUMBER}"
             // here we are replacing the latest tag and giving the tag current build number
             }
         }
