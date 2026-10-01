@@ -7,7 +7,6 @@
 #     THREAD_COUNT
 #     TEST_SUITE
 #-------------------------------------------------------------------
-
 # Let's print what we have received
 echo "-------------------------------------------"
 echo "HUB_HOST      : ${HUB_HOST:-hub}"
@@ -24,6 +23,7 @@ do
   count=$((count+1))
   echo "Attempt: ${count}"
   if [ "$count" -ge 30 ] #waiting until 30 seconds
+  then
       echo "**** HUB IS NOT READY WITHIN 30 SECONDS ****"
       exit 1
   fi
