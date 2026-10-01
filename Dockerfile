@@ -58,5 +58,6 @@ ADD runner.sh runner.sh
 #then run the below command
 # docker run -e HOST=host.docker.internal -e BROWSER_NAME=chrome -e THREAD_COUNT=3 -e TEST_SUITE_NAME=flight-reservation -v C:\Users\u1127187\AutomationFrameworkDocker\reports-docker:/home/selenium-docker/test-output uk040193/selenium-docker
 # once run, the test will start executing since we have given the entry point
+RUN dos2unix runner.sh
 
 ENTRYPOINT sh runner.sh
