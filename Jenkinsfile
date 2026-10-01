@@ -26,11 +26,10 @@ pipeline {
             For me it worked without giving credentials
             If it does not work, create global credentials in jenkins and use as below in steps*/
             steps{
-                // Jenkins runs bat steps with cmd.exe. cmd expands %VAR%, not ${VAR}.
-                // ${DOCKER_HUB_USR} was sent to Docker Hub as the literal username,
-                // which produces: malformed HTTP Authorization header.
-                // No space before the pipe: a trailing space would become part of the password.
-                bat 'echo %DOCKER_HUB_PSW%| docker login -u %DOCKER_HUB_USR% --password-stdin'
+                bat 'docker login -u ${DOCKER_HUB_USR} -p ${DOCKER_HUB_PSW}'
+                //the above way of login will give warning in jenkins console, to fix it use below code
+                //bat 'echo ${DOCKER_HUB_PSW} | docker login -u ${DOCKER_HUB_USR} --password-stdin'
+                //the above comment might not work in windows
                 bat "docker push uk040193/selenium-docker:latest"
                 bat "docker tag uk040193/selenium-docker:latest uk040193/selenium-docker:${env.BUILD_NUMBER}"
                 bat "docker push uk040193/selenium-docker:${env.BUILD_NUMBER}"
@@ -48,3 +47,10 @@ pipeline {
 
 //If the node we are using does not have maven installed, we can use the approach of using docker container as a node or agent or slave
 //the jenkinsfile for this approach is stored in below location
+
+
+//how to trigger the job automatically when github gets the new code
+/*right now doing this not possible because
+1. our jenkins is running on localhost and github is running elsewhere. So it cannot work
+2. Another way is we can configure jenkins to send request to github periodically to check for changes. But this is not encouraged
+3. We can setup a job which runs daily once at a given time. This we can do by going to "Configure"-> Build Triggers and give a cron expression*/
